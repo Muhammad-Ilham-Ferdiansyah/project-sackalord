@@ -17,11 +17,11 @@ class PostController extends Controller
     }
 
     //method untuk menampilkan satu postingan
-    public function show($slug)
+    public function show(Post $post)
     {
         return view('post', [
             'title' => 'Single Post',
-            'post' => Post::find($slug)
+            'post' => $post
         ]);
     }
 }
