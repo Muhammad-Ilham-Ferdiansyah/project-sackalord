@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <h1 class="font-bold ml-7">Halaman Blog Posts</h1>
-    <section class="w-full flex flex-col items-center px-3">
+    <section class="w-full flex flex-col px-3">
         @foreach ($posts as $post)
             <article class="flex flex-col shadow my-4 rounded-xl overflow-hidden">
                 <!-- Article Image -->
@@ -11,15 +11,15 @@
                 <div class="bg-white flex flex-col justify-start p-6">
                     <a href="#" class="text-purple-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a>
                     <a href="/posts/{{ $post->slug }}"
-                        class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $post->title }}</a>
-                    {{-- <p href="#" class="text-sm pb-3">
-                        By <a href="#" class="font-semibold hover:text-purple-700">{{ $post->author }}</a>, Published on
-                        April
-                        25th, 2020
-                    </p> --}}
-                    <a href="#" class="pb-6">{{ $post->excerpt }}</a>
-                    <a href="#" class="uppercase text-gray-800 hover:text-purple-700">Continue Reading <i
-                            class="fas fa-arrow-right"></i></a>
+                        class="text-3xl font-bold hover:text-purple-700 pb-4">{{ $post->title }}</a>
+                    <p class="text-sm pb-3">
+                        By. <a href="#" class="font-semibold hover:text-purple-700">{{ $post->user->name }}</a> in <a
+                            href="/categories/{{ $post->category->slug }}"
+                            class="font-semibold hover:text-purple-700">{{ $post->category->name }}</a>
+                    </p>
+                    <p class="pb-6">{{ $post->excerpt }}</p>
+                    <a href="/posts/{{ $post->slug }}" class="uppercase text-gray-800 hover:text-purple-700">Continue
+                        Reading <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
         @endforeach
