@@ -11,7 +11,8 @@
                 class="text-purple-700 text-sm font-bold uppercase pb-4 hover:text-purple-800">{{ $post->category->name }}</a>
             <h1 class="text-3xl font-bold pb-4">{{ $post->title }}</h1>
             <p href="#" class="text-sm pb-8">
-                By <a href="#" class="font-semibold hover:text-purple-700">{{ $post->user->name }}</a>, Published on April
+                By <a href="/authors/{{ $post->author->username }}"
+                    class="font-semibold hover:text-purple-700">{{ $post->author->name }}</a>, Published on April
                 25th, 2020
             </p>
             <h1 class="text-2xl font-bold pb-3">Introduction</h1>

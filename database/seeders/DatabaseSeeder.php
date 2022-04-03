@@ -16,17 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        User::create([
-            'name' => 'Muhammad Ilham Ferdiansyah',
-            'email' => 'ilhamferdiansyah737@gmail.com',
-            'password' => bcrypt('12345')
-        ]);
-        User::create([
-            'name' => 'Dedi Hidayat Siregar',
-            'email' => 'dedihidayat333@gmail.com',
-            'password' => bcrypt('12345')
-        ]);
+        User::factory(3)->create();
+
+        // User::create([
+        //     'name' => 'Muhammad Ilham Ferdiansyah',
+        //     'email' => 'ilhamferdiansyah737@gmail.com',
+        //     'password' => bcrypt('12345')
+        // ]);
+        // User::create([
+        //     'name' => 'Dedi Hidayat Siregar',
+        //     'email' => 'dedihidayat333@gmail.com',
+        //     'password' => bcrypt('12345')
+        // ]);
 
         Category::create([
             'name' => 'Web Programming',
@@ -38,37 +39,15 @@ class DatabaseSeeder extends Seeder
             'slug' => 'personal'
         ]);
 
-        Post::create([
-            'title' => 'Judul Pertama',
-            'slug' => 'judul-pertama',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt,',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt, natus, tempora iusto assumenda adipisci corrupti consectetur, aliquam perspiciatis soluta quis odit eum sed laborum quia quasi! Quis exercitationem vero minima unde fugit id molestiae facilis mollitia voluptatem asperiores velit, animi ipsa perspiciatis quas pariatur. Sed cupiditate vero nobis quaerat pariatur delectus enim molestias maxime inventore sunt, eligendi perferendis at, asperiores numquam ipsum labore quam deleniti distinctio possimus. Distinctio placeat perferendis fuga magni incidunt, et, consequuntur modi, voluptatum numquam ex ducimus? Velit repellat odio aspernatur explicabo maxime!',
-            'category_id' => 1,
-            'user_id' => 1
-        ]);
-        Post::create([
-            'title' => 'Judul Kedua',
-            'slug' => 'judul-kedua',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt,',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt, natus, tempora iusto assumenda adipisci corrupti consectetur, aliquam perspiciatis soluta quis odit eum sed laborum quia quasi! Quis exercitationem vero minima unde fugit id molestiae facilis mollitia voluptatem asperiores velit, animi ipsa perspiciatis quas pariatur. Sed cupiditate vero nobis quaerat pariatur delectus enim molestias maxime inventore sunt, eligendi perferendis at, asperiores numquam ipsum labore quam deleniti distinctio possimus. Distinctio placeat perferendis fuga magni incidunt, et, consequuntur modi, voluptatum numquam ex ducimus? Velit repellat odio aspernatur explicabo maxime!',
-            'category_id' => 1,
-            'user_id' => 1
-        ]);
-        Post::create([
-            'title' => 'Judul Ketiga',
-            'slug' => 'judul-ketiga',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt,',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt, natus, tempora iusto assumenda adipisci corrupti consectetur, aliquam perspiciatis soluta quis odit eum sed laborum quia quasi! Quis exercitationem vero minima unde fugit id molestiae facilis mollitia voluptatem asperiores velit, animi ipsa perspiciatis quas pariatur. Sed cupiditate vero nobis quaerat pariatur delectus enim molestias maxime inventore sunt, eligendi perferendis at, asperiores numquam ipsum labore quam deleniti distinctio possimus. Distinctio placeat perferendis fuga magni incidunt, et, consequuntur modi, voluptatum numquam ex ducimus? Velit repellat odio aspernatur explicabo maxime!',
-            'category_id' => 2,
-            'user_id' => 1
-        ]);
-        Post::create([
-            'title' => 'Judul Keempat',
-            'slug' => 'judul-keempat',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt,',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt, natus, tempora iusto assumenda adipisci corrupti consectetur, aliquam perspiciatis soluta quis odit eum sed laborum quia quasi! Quis exercitationem vero minima unde fugit id molestiae facilis mollitia voluptatem asperiores velit, animi ipsa perspiciatis quas pariatur. Sed cupiditate vero nobis quaerat pariatur delectus enim molestias maxime inventore sunt, eligendi perferendis at, asperiores numquam ipsum labore quam deleniti distinctio possimus. Distinctio placeat perferendis fuga magni incidunt, et, consequuntur modi, voluptatum numquam ex ducimus? Velit repellat odio aspernatur explicabo maxime!',
-            'category_id' => 2,
-            'user_id' => 2
-        ]);
+        Post::factory(20)->create();
+
+        // Post::create([
+        //     'title' => 'Judul Pertama',
+        //     'slug' => 'judul-pertama',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt,',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis non ratione consequuntur est eum itaque alias vero illo laudantium iure! Suscipit ex incidunt, natus, tempora iusto assumenda adipisci corrupti consectetur, aliquam perspiciatis soluta quis odit eum sed laborum quia quasi! Quis exercitationem vero minima unde fugit id molestiae facilis mollitia voluptatem asperiores velit, animi ipsa perspiciatis quas pariatur. Sed cupiditate vero nobis quaerat pariatur delectus enim molestias maxime inventore sunt, eligendi perferendis at, asperiores numquam ipsum labore quam deleniti distinctio possimus. Distinctio placeat perferendis fuga magni incidunt, et, consequuntur modi, voluptatum numquam ex ducimus? Velit repellat odio aspernatur explicabo maxime!',
+        //     'category_id' => 1,
+        //     'user_id' => 1
+        // ]);
     }
 }

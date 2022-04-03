@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Models\Category;
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,21 +31,32 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 //halaman category
-Route::get('/categories', function () {
-    return view('categories', [
-        'title' => 'All Categories',
-        'categories' => Category::all()
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
+
+//halaman author
+Route::get('/authors/{author:username}', function (User $author) {
+    return view('posts', [
+        'title' => 'User Posts',
+        'posts' => $author->posts
     ]);
 });
 
+// Route::get('/categories', function () {
+//     return view('categories', [
+//         'title' => 'All Categories',
+//         'categories' => Category::all()
+//     ]);
+// });
+
 //halaman post per category
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('category', [
-        'title' => $category->name,
-        'posts' => $category->posts,
-        'category' => $category->name
-    ]);
-});
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//     return view('category', [
+//         'title' => $category->name,
+//         'posts' => $category->posts,
+//         'category' => $category->name
+//     ]);
+// });
 
 
 //route ketika membutuhkan login

@@ -9,11 +9,13 @@
                     <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1">
                 </a> --}}
                 <div class="bg-white flex flex-col justify-start p-6">
-                    <a href="#" class="text-purple-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a>
+                    <a href="/categories/{{ $post->category->slug }}"
+                        class="text-purple-700 hover:text-purple-800 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a>
                     <a href="/posts/{{ $post->slug }}"
                         class="text-3xl font-bold hover:text-purple-700 pb-4">{{ $post->title }}</a>
                     <p class="text-sm pb-3">
-                        By. <a href="#" class="font-semibold hover:text-purple-700">{{ $post->user->name }}</a> in <a
+                        By <a href="/authors/{{ $post->author->username }}"
+                            class="font-semibold hover:text-purple-700">{{ $post->author->name }}</a> in <a
                             href="/categories/{{ $post->category->slug }}"
                             class="font-semibold hover:text-purple-700">{{ $post->category->name }}</a>
                     </p>
