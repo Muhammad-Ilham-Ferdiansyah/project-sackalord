@@ -14,6 +14,7 @@
                 <a href="/" class="hover:text-purple-700 py-2 px-4 mx-2">About</a>
                 <a href="/" class="hover:text-purple-700 py-2 px-4 mx-2">Profile</a>
                 <a href="/posts" class="hover:text-purple-700 py-2 px-4 mx-2">Blog</a>
+                <a href="/categories" class="hover:text-purple-700 py-2 px-4 mx-2">Categories</a>
             </div>
             <div
                 class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-end text-sm font-bold uppercase mt-0 px-6 py-2">

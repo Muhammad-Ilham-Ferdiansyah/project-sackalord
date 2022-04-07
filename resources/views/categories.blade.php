@@ -2,21 +2,23 @@
 @section('container')
     <h1 class="font-bold ml-7">Post Categories</h1>
     <section class="w-full flex flex-col items-center px-3">
-        @foreach ($categories as $category)
-            <article class="flex flex-col shadow my-4 rounded-xl overflow-hidden">
-                <!-- Article Image -->
-                {{-- <a href="#" class="hover:opacity-75">
-                    <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1">
-                </a> --}}
-                <div class="bg-white flex flex-col justify-start p-6">
-                    <ul>
-                        <li>
-                            <h2><a href="/categories/{{ $category->slug }}">{{ $category->name }}</a></h2>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-        @endforeach
+        <div class="grid grid-cols-3 gap-3">
+            @foreach ($categories as $category)
+                <article class="flex flex-col shadow my-4 rounded-xl overflow-hidden">
+                    <!-- Article Image -->
+                    <a href="/categories/{{ $category->slug }}" class="hover:opacity-75">
+                        <img src="https://source.unsplash.com/1200x600?{{ $category->name }}">
+                    </a>
+                    <div class="bg-white flex flex-col justify-start p-6">
+                        <ul>
+                            <li>
+                                <h2><a href="/categories/{{ $category->slug }}">{{ $category->name }}</a></h2>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            @endforeach
+        </div>
 
         <!-- Pagination -->
         <div class="flex items-center py-8">
