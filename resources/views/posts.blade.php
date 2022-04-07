@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <h1 class="font-bold ml-7">Halaman Blog Posts</h1>
+    <h1 class="font-bold ml-7">{{ $title }}</h1>
     <section class="w-full flex flex-col px-3">
         @foreach ($posts as $post)
             <article class="flex flex-col shadow my-4 rounded-xl overflow-hidden">
