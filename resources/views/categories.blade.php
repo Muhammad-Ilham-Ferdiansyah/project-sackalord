@@ -6,13 +6,13 @@
             @foreach ($categories as $category)
                 <article class="flex flex-col shadow my-4 rounded-xl overflow-hidden">
                     <!-- Article Image -->
-                    <a href="/categories/{{ $category->slug }}" class="hover:opacity-75">
+                    <a href="/posts?category={{ $category->slug }}" class="hover:opacity-75">
                         <img src="https://source.unsplash.com/1200x600?{{ $category->name }}">
                     </a>
                     <div class="bg-white flex flex-col justify-start p-6">
                         <ul>
                             <li>
-                                <h2><a href="/categories/{{ $category->slug }}">{{ $category->name }}</a></h2>
+                                <h2><a href="/posts?category={{ $category->slug }}">{{ $category->name }}</a></h2>
                             </li>
                         </ul>
                     </div>

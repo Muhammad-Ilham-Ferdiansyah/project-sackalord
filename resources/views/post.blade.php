@@ -6,8 +6,10 @@
         <div class="bg-white flex flex-col justify-start p-6">
             <h1 class="text-3xl font-bold pb-4">{{ $post->title }}</h1>
             <p href="#" class="text-sm pb-8">
-                By <a href="/authors/{{ $post->author->username }}"
-                    class="font-semibold hover:text-purple-700">{{ $post->author->name }}</a>, Published on
+                By <a href="/posts?author={{ $post->author->username }}"
+                    class="font-semibold hover:text-purple-700">{{ $post->author->name }}</a> in <a
+                    href="/posts?category={{ $post->category->slug }}"
+                    class="font-semibold hover:text-purple-700">{{ $post->category->name }}</a>, Published on
                 {{ $post->created_at->diffForHumans() }}
             </p>
             <img src="https://source.unsplash.com/1000x500?{{ $post->category->name }}" class="pb-4 rounded">
