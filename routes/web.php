@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\ProfileController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 //halaman category
 Route::get('/categories', [CategoryController::class, 'index']);
 
+
 // Route::get('/categories', function () {
 //     return view('categories', [
 //         'title' => 'All Categories',
@@ -55,6 +58,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('profile', function () {
+        return view('profile');
+    })->name('profile');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::resource('/dashboard/posts', DashboardPostController::class);
 });
 
 // Auth::routes(['verify'=>true]);
