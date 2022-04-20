@@ -55,13 +55,13 @@ Route::get('/categories', [CategoryController::class, 'index']);
 
 //route ketika membutuhkan login
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::get('profile', function () {
-        return view('profile');
-    })->name('profile');
-    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('dashboard', function () {
+        return view('dashboard.index');
+    });
+    // Route::get('profile', function () {
+    //     return view('profile');
+    // })->name('profile');
+    // Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::resource('/dashboard/posts', DashboardPostController::class);
 });
 
