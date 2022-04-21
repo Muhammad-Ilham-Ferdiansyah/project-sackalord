@@ -58,6 +58,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return view('dashboard.index');
     });
+    Route::resource('/dashboard/posts', DashboardPostController::class);
     // Route::get('profile', function () {
     //     return view('profile');
     // })->name('profile');
