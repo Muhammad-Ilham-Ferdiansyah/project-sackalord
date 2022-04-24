@@ -20,6 +20,15 @@
     <link href="/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" href="/css/trix.css">
+    <script src="/js/trix.js" type="text/javascript"></script>
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+
+    </style>
 </head>
 
 <body class="g-sidenav-show bg-gray-100">

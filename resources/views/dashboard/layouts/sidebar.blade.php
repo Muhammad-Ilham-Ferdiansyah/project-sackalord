@@ -14,9 +14,10 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
+                    <a class="nav-link {{ Request::is('dashboard') ? 'bg-dark text-white active' : '' }}"
+                        href="/dashboard">
                         <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 text-primary d-flex align-items-center justify-content-center">
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 {{ Request::is('dashboard') ? 'text-white' : 'text-primary' }} d-flex align-items-center justify-content-center">
                             {{-- <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i> --}}
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-speedometer2 fill-current" viewBox="0 0 16 16">
@@ -30,9 +31,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/posts') ? 'active' : '' }} " href="/dashboard/posts">
+                    <a class="nav-link {{ Request::is('dashboard/posts*') ? 'bg-dark text-white active' : '' }} "
+                        href="/dashboard/posts">
                         <div
-                            class="icon icon-shape icon-sm border-radius-md text-center text-warning me-2 d-flex align-items-center justify-content-center">
+                            class="icon icon-shape icon-sm border-radius-md text-center {{ Request::is('dashboard/posts*') ? 'text-white' : 'text-warning' }} me-2 d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-file-earmark-text fill-current" viewBox="0 0 16 16">
                                 <path

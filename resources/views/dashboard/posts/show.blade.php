@@ -10,16 +10,20 @@
                             class="fas fa-arrow-left pr-1"></i> Back
                     </p>
                 </a>
-                <a href="javascript:void(0);" onclick="location.href='/dashboard/posts'" class="text-left mb-5">
-                    <p class="text-lg text-purple-600 hover:text-purple-800 font-bold flex items-center mr-5"><i
+                <a href="javascript:void(0);" onclick="location.href='/dashboard/posts/{{ $post->slug }}/edit'"
+                    class="text-left mb-5">
+                    <p class="text-lg text-green-500 hover:text-green-800 font-bold flex items-center mr-5"><i
                             class="fas fa-edit pr-1"></i> Edit
                     </p>
                 </a>
-                <a href="javascript:void(0);" onclick="location.href='/dashboard/posts'" class="text-left mb-5">
-                    <p class="text-lg text-purple-600 hover:text-purple-800 font-bold flex items-center"><i
-                            class="fas fa-trash pr-1"></i> Delete
-                    </p>
-                </a>
+                <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button class="text-lg text-red-500 hover:text-red-900 font-bold flex items-center"
+                        data-toggle="tooltip" data-original-title="Hapus Post" onclick="return confirm('Are you sure?')">
+                        <i class="fas fa-trash pr-1"></i> Delete
+                    </button>
+                </form>
             </div>
             <h1 class="text-3xl font-bold pb-4">{{ $post->title }}</h1>
             <p href="#" class="text-sm pb-5">

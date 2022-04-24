@@ -34,15 +34,26 @@
                     autocomplete="current-password" />
             </div>
 
-            <!-- Remember Me -->
+            <!-- Showing Password -->
             <div class="block mt-4">
+                <label for="show_password" class="inline-flex items-center">
+                    <input id="show_password" type="checkbox"
+                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        name="show_password" onclick="showPassword()">
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Show Password') }}</span>
+                </label>
+            </div>
+
+            <!-- Remember Me -->
+            {{-- <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox"
                         class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
+            </div> --}}
+
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
@@ -66,3 +77,13 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+<script>
+    function showPassword() {
+        let show = document.querySelector('#password');
+        if (show.type === 'password') {
+            show.type = 'text';
+        } else {
+            show.type = 'password';
+        }
+    }
+</script>

@@ -11,8 +11,16 @@
                     <div class="card-header pb-0">
                         <h6>List My Posts</h6>
                     </div>
+                    @if (session()->has('success'))
+                        <div class="alert alert-success text-white mx-2" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">
+                        <div class="table-responsive p-0 ml-3 mt-2">
+                            <a href="javascript:void(0);" onclick="location.href='/dashboard/posts/create'"
+                                class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Create New
+                                Post</a>
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
@@ -50,8 +58,8 @@
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{ $post->created_at->format('d-M-Y') }}</span>
                                             </td>
-                                            <td class="align-middle">
-                                                <div class="d-flex justify-between mx-auto px-4">
+                                            <td class="align-middle ">
+                                                <div class="d-flex justify-content-between mx-4 px-4">
                                                     <a href="javascript:void(0);"
                                                         onclick="location.href='/dashboard/posts/{{ $post->slug }}'"
                                                         class="text-secondary font-weight-bold text-xs text-success"
@@ -66,7 +74,7 @@
                                                         </svg>
                                                     </a>
                                                     <a href="javascript:void(0);"
-                                                        onclick="location.href='/dashboard/posts/{{ $post->slug }}'"
+                                                        onclick="location.href='/dashboard/posts/{{ $post->slug }}/edit'"
                                                         class="text-secondary font-weight-bold text-xs text-info"
                                                         data-toggle="tooltip" data-original-title="Edit post">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -78,19 +86,23 @@
                                                                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                                         </svg>
                                                     </a>
-                                                    <a href="javascript:void(0);"
-                                                        onclick="location.href='/dashboard/posts/{{ $post->slug }}'"
-                                                        class="text-secondary font-weight-bold text-xs text-danger"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor" class="bi bi-trash fill-current"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                                            <path fill-rule="evenodd"
-                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                                        </svg>
-                                                    </a>
+                                                    <form action="/dashboard/posts/{{ $post->slug }}" method="POST"
+                                                        class="d-inline">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="text-secondary font-weight-bold text-xs text-danger"
+                                                            data-toggle="tooltip" data-original-title="Hapus Post"
+                                                            onclick="return confirm('Are you sure?')">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                fill="currentColor" class="bi bi-trash fill-current"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                                <path fill-rule="evenodd"
+                                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

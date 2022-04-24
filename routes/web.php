@@ -59,12 +59,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('dashboard.index');
     });
     Route::resource('/dashboard/posts', DashboardPostController::class);
+    Route::get('/dashboard/post/checkSlug', [DashboardPostController::class, 'checkSlug']);
     // Route::get('profile', function () {
     //     return view('profile');
     // })->name('profile');
     // Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::resource('/dashboard/posts', DashboardPostController::class);
 });
+
 
 // Auth::routes(['verify'=>true]);
 
