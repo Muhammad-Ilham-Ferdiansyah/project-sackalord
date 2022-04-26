@@ -25,8 +25,14 @@
         @if ($posts->count())
             <article class="flex flex-col shadow my-4 rounded-xl border-solid border-2 border-slate-700 overflow-hidden">
                 <a href="/posts/{{ $posts[0]->slug }}" class="hover:opacity-75">
-                    <img src="https://source.unsplash.com/1400x400?{{ $posts[0]->category->name }}"
-                        alt="{{ $posts[0]->category->name }}">
+                    @if ($posts[0]->image)
+                        <div style="max-height:400px; overflow:hidden">
+                            <img src="{{ asset('storage/' . $posts[0]->image) }}" class="pb-4 rounded">
+                        </div>
+                    @else
+                        <img src="https://source.unsplash.com/1000x500?{{ $posts[0]->category->name }}"
+                            class="pb-4 rounded">
+                    @endif
                 </a>
                 <div class="bg-white flex flex-col justify-center text-center p-6">
                     <a href="/posts/{{ $posts[0]->slug }}"
@@ -50,8 +56,12 @@
                     <article
                         class="flex flex-col shadow my-4 rounded-xl border-solid border-2 border-slate-700 overflow-hidden">
                         <a href="/posts/{{ $post->slug }}" class="hover:opacity-75">
-                            <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}"
-                                alt="{{ $post->category->name }}">
+                            @if ($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}" class="pb-4 rounded">
+                            @else
+                                <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}"
+                                    alt="{{ $post->category->name }}">
+                            @endif
                         </a>
                         <div class="bg-white flex flex-col justify-start p-6">
                             <a href="/posts?category={{ $post->category->slug }}"

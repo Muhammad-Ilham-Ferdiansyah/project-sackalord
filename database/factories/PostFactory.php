@@ -19,8 +19,8 @@ class PostFactory extends Factory
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->paragraph(),
             'body' => '<p class="mb-3 text-justify">' . implode('</p><p class="mb-3 text-justify">', $this->faker->paragraphs(mt_rand(5, 10))) . '</p>',
-            'user_id' => mt_rand(1, 3),
-            'category_id' => mt_rand(1, 2)
+            'user_id' => mt_rand(1, 4),
+            'category_id' => mt_rand(1, 3)
         ];
     }
 }
