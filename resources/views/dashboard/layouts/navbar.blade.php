@@ -18,13 +18,13 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown pe-2 d-flex align-items-center ms-4">
-                    <a href="javascript:;" class="nav-link  p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a href="javascript:void(0);" class="nav-link  p-0" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/images/faces/1.jpg" alt="Profile" width="50" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                         <li class="mb-2">
-                            <a class="dropdown-item border-radius-md" href="javascript:;">
+                            <a class="dropdown-item border-radius-md" href="{{ url('dashboard/profile') }}">
                                 <div class="d-flex py-1">
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm text-slate-700 font-semibold mb-1">
