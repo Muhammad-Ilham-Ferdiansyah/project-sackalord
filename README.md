@@ -47,7 +47,7 @@ $ artisan telescope:install
 $ artisan storage:link
 ```
 
-Now you can access the application via [http://localhost:8000](http://localhost:8000).
+Now you can access the application via [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 **There is no need to run `php artisan serve`. PHP is already running in the dedicated virtual machine.**
 
@@ -59,8 +59,8 @@ $ artisan migrate --seed
 
 This will create a new user that you can use to sign in :
 ```yml
-email: darthvader@deathstar.ds
-password: 4nak1n
+email: ilhamferdiansyah737@gmail.com
+password: password123
 ```
 
 And then, compile the assets :
