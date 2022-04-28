@@ -30,7 +30,7 @@
                             <img src="{{ asset('storage/' . $posts[0]->image) }}" class="pb-4 rounded">
                         </div>
                     @else
-                        <img src="https://source.unsplash.com/1000x500?{{ $posts[0]->category->name }}"
+                        <img src="https://source.unsplash.com/1400x500?{{ $posts[0]->category->name }}"
                             class="pb-4 rounded">
                     @endif
                 </a>

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Muhammad Ilham Ferdiansyah',
             'username' => 'ilhamferdx',
             'email' => 'ilhamferdiansyah737@gmail.com',
+            'image' => 'profile-images/default.jpg',
             'password' => bcrypt('password123')
         ]);
         // User::create([

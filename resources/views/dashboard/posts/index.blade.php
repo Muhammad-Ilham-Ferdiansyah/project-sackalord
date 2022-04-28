@@ -19,7 +19,7 @@
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0 ml-3 mt-2">
                             <a href="javascript:void(0);" onclick="location.href='/dashboard/posts/create'"
-                                class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Create New
+                                class="btn bg-gradient-info"><i class="fas fa-plus mr-2"></i>Create New
                                 Post</a>
                             <table class="table align-items-center mb-0">
                                 <thead>

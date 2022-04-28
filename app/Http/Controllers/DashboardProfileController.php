@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardProfileController extends Controller
 {
@@ -60,7 +61,9 @@ class DashboardProfileController extends Controller
      */
     public function edit(User $user)
     {
-        return view('dashboard.profile.edit');
+        return view('dashboard.profile.edit', [
+            'users' => User::where('id', auth()->user()->id)->get()
+        ]);
     }
 
     /**
@@ -73,11 +76,19 @@ class DashboardProfileController extends Controller
     public function update(Request $request, User $user)
     {
         $validateData = $request->validate([
-            'username' => ['string', 'min:3', 'max:191', 'required', 'alpha_num', 'unique:users,username,' . auth()->id()],
+            'username' => ['required', 'min:3', 'max:191', 'string', 'alpha_num', 'unique:users,username,' . auth()->id()],
             'email' => ['required', 'email', 'min:3', 'max:191'],
             'name' => ['required', 'min:3', 'max:191', 'string'],
-            'birthday_date' => ['date', 'required']
+            'birthday_date' => ['required', 'date'],
+            'image' => ['image', 'file', 'max:1024']
         ]);
+
+        if ($request->file('image')) {
+            if ($request->oldImage != 'profile-images/default.jpg') {
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('profile-images');
+        }
 
         Auth::user()->update($validateData);
 

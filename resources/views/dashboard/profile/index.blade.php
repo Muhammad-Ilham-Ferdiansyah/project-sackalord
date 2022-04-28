@@ -9,21 +9,22 @@
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="/images/faces/1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        <img src="{{ asset('storage/' . $users[0]->image) }}" alt="profile_image"
+                            class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            {{ Auth::user()->name }}
+                            {{ $users[0]->name }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            {{ Auth::user()->email }}
+                            {{ $users[0]->email }}
                         </p>
                     </div>
                     <div class="h-100">
                         <span class="mb-0 font-weight-thin text-sm">
-                            Created at {{ Auth::user()->created_at->diffForHumans() }}
+                            Created at {{ $users[0]->created_at->diffForHumans() }}
                         </span>
                     </div>
                 </div>
