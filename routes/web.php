@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardChangePassword;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardProfileController;
 /*
@@ -66,6 +67,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard/profile', [DashboardProfileController::class, 'index']);
     Route::get('dashboard/profile/edit', [DashboardProfileController::class, 'edit']);
     Route::put('dashboard/profile/update', [DashboardProfileController::class, 'update']);
+    //Route Change Password
+    Route::get('dashboard/password/edit', [DashboardChangePassword::class, 'edit']);
+    Route::put('dashboard/password/update', [DashboardChangePassword::class, 'update']);
     // Route::resource('/dashboard/profile', DashboardProfileController::class);
 });
 

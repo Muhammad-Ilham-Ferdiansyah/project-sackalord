@@ -46,7 +46,7 @@
                                         Profile</button>
                                 </a>
                                 <a href="javascript:void(0);"
-                                    onclick="location.href='{{ url('/dashboard/profile/edit') }}'">
+                                    onclick="location.href='{{ url('/dashboard/password/edit') }}'">
                                     <button class="btn bg-gradient-secondary btn-sm"> Change Password</button>
                                 </a>
                             </div>
